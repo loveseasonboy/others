@@ -14,5 +14,18 @@ public class ClassLoader {
         System.out.println(loader);//AppClassLoader
         System.out.println(loader.getParent());//extClassLoader
         System.out.println(loader.getParent().getParent());//bootstrap
+
+        try {
+            //第一种加载类的方式
+            Class<?> aClass = Class.forName("");
+            //第二种加载类的方式
+            Class<?> aClass1= ClassLoader.class;
+            //第三种加载类的方式--通过对象的方式来获取（也可以通过反射来获取）
+            ClassLoader classloader1 = new ClassLoader();
+            Class aClass2=classloader1.getClass();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
