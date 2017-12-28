@@ -9,6 +9,10 @@ public class Command implements Serializable{
         return actionName;
     }
 
+    /**
+     * 测试
+     * @param actionName
+     */
     public void setActionName(String actionName) {
         this.actionName = actionName;
     }
