@@ -1,7 +1,7 @@
 package com.netty;
 
 import java.io.Serializable;
-
+/*测试*/
 public class Command implements Serializable{
     private String actionName;
 
