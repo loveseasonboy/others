@@ -8,7 +8,7 @@ public class Command implements Serializable{
     public String getActionName() {
         return actionName;
     }
-
+    /*测试1*/
     public void setActionName(String actionName) {
         this.actionName = actionName;
     }
