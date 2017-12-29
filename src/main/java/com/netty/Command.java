@@ -1,10 +1,10 @@
 package com.netty;
 
 import java.io.Serializable;
-/*测试0*/
+/*测试QQ*/
 public class Command implements Serializable{
     private String actionName;
-    /*测试1*/
+    /*测试QQ*/
     public String getActionName() {
         return actionName;
     }
