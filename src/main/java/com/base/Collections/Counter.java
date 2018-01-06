@@ -1,6 +1,7 @@
 package com.base.Collections;
 
 import java.util.Hashtable;
+import java.util.Properties;
 
 /**
  * hashTable  继承dictionary 线程安全的，但是效率比较低
@@ -25,5 +26,9 @@ class Statistics {
             }
         }
         System.out.println(ht);
+        //获取系统的数据
+        Properties p =System.getProperties();
+        p.list(System.out);
     }
+
 }
