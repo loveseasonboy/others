@@ -33,8 +33,6 @@ public class StackTest {
         map.put("-", otherPriority);
         map.put("（", 0);
         map.put("）", 0);
-        map.put("(", 0);
-        map.put(")", 0);
     }
 
     public static void main(String[] args) {
