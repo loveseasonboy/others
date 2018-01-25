@@ -1,5 +1,7 @@
 package com.binaryTree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -70,6 +72,35 @@ public class BinaryTree {
         nodeB.setRightNode(nodeE);
         nodeC.setRightNode(nodeF);
         rootNode = nodeA;//负值
+    }
+
+    /**
+     * 前序遍历创建二叉树
+     * ABD##E##C#F##
+     *
+     * @param list
+     */
+    public void createTree(List list) {
+        createTree(list.size(), list);
+    }
+
+    public TreeNode createTree(int size, List data) {
+        if (data.isEmpty()) {
+            return null;
+        }
+        String value = (String) data.get(0);
+        if ("#".equals(value)) {
+            data.remove(0);
+            return null;
+        }
+        TreeNode node = new TreeNode(value);
+        if (rootNode == null) {
+            rootNode = node;
+        }
+        data.remove(0);
+        node.leftNode = createTree(size, data);
+        node.rightNode = createTree(size, data);
+        return node;
     }
 
     /**
@@ -206,12 +237,54 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 赫夫曼树的添加
+     * @param data
+     */
+    public void put(int data) {
+        if (rootNode == null) {
+            rootNode = new TreeNode(data);
+            return;
+        }
+        TreeNode node = rootNode;
+        while (true) {
+            TreeNode value = new TreeNode(data);
+            if (data < (int) (node.getValue())) {
+                if (node.leftNode == null) {
+                    node.leftNode = value;
+                    return;
+                } else {
+                    TreeNode current = node.leftNode;
+                    node = current;
+                }
+            } else if (data > (int) (node.getValue())) {
+                if (node.rightNode == null) {
+                    node.rightNode = value;
+                    return;
+                } else {
+                    TreeNode current = node.rightNode;
+                    node = current;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
+//        List<String> list = new ArrayList<>();
+//        String[] value = {"A", "B", "D", "#", "#", "E", "#", "#", "C", "#", "F", "#", "#"};
+//        for (String val : value) {
+//            list.add(val);
+//        }
+        int[] value = {50, 30, 15, 45, 60, 55, 70};
         BinaryTree binaryTree = new BinaryTree();
-        binaryTree.createTree();
+        for (int val : value) {
+            binaryTree.put(val);
+        }
+        //binaryTree.createTree(list);
+        //binaryTree.createTree();
         //binaryTree.prefixIterator(binaryTree.rootNode);
-        //binaryTree.minInterator(binaryTree.rootNode);
+        binaryTree.minInterator(binaryTree.rootNode);
         //binaryTree.suffixIterator(binaryTree.rootNode);
-        binaryTree.suffixIteratorOther();
+        //binaryTree.suffixIteratorOther();
     }
 }
