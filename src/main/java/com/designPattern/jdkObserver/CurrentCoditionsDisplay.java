@@ -11,9 +11,10 @@ public class CurrentCoditionsDisplay implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         System.out.println("更新操作正在进行。。。");
-        if (o instanceof WeatherData){
-            WeatherData weatherData= (WeatherData) o;
-            System.out.println("数据获取："+weatherData.getHumidity());
+        if (o instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) o;
+            System.out.println("数据获取：" + weatherData.getHumidity());
         }
+        System.out.println("传输其他的数据:" + arg);
     }
 }

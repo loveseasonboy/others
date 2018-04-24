@@ -16,7 +16,7 @@ public class WeatherData extends Observable {
 
     private void sendMsg() {
         setChanged();
-        notifyObservers();
+        notifyObservers("你好啊！");
     }
 
     public float getTemperature() {
