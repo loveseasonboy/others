@@ -72,7 +72,8 @@ enum Demo {
     public abstract String getInfo();//抽象的方法
 
     public static void main(String[] args) {
-        System.out.println(Demo.ONE.getInfo());
+        Demo one = Demo.ONE;//可以向上造型
+        System.out.println(one.getInfo());
     }
 }
 
